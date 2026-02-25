@@ -1,0 +1,22 @@
+//- layout.pug
+doctype html
+html
+  head
+    title NayanDanceAcademy
+    block scripts
+    block style
+  body
+    nav#navbar
+        ul
+            div#logo
+                img(src="/static/logo.jpg")
+                | NDA
+            li #[a(href='/') HOME]
+            li #[a(href='/') ABOUT]
+            li #[a(href='/') SERVICES]
+            li #[a(href='/') CLASS INFO]
+            li #[a(href='/contact') CONTACT US]
+
+    block content
+    footer#footer
+        | copyright &copy 2020 NayanDanceAcademy.com | All rights reserved

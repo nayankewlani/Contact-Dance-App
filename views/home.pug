@@ -1,0 +1,44 @@
+extends base.pug
+
+block scripts
+  script(src='/static/index.js')
+
+block style
+    style
+      include ../static/style.css
+
+block content
+            
+    section#introSection
+        div.content Welcome to Nayan Dance Academy
+            div.small Don't let people discourage you
+    section#ourmissionSection
+        h2 our mission
+        div.card 
+            h3 Dance perfection
+            div.card-box
+                div.card-img
+                    img(src="/static/i1.jpg")
+                div.card-content
+                    p This is the best dance academy of the universe
+        div.card 
+            h3 Dance the way you like
+            div.card-box
+                div.card-img
+                    img(src="/static/i2.png")
+                div.card-content
+                    p This is the best dance academy of the universe            
+        div.card 
+            h3 Expert Teaching
+            div.card-box
+                div.card-img
+                    img(src="/static/i4.jpg")
+                div.card-content
+                    p This is the best dance academy of the universe            
+    section#sponsorsSection
+        h2 sponsors
+        div#sponsors
+            img(src="/static/logo1.jpg",alt="sponsor image",class="spImage")
+            img(src="/static/logo.png",alt="sponsor image",class="spImage")
+            img(src="/static/logo3.png",alt="sponsor image",class="spImage")
+            img(src="/static/logo4.jpg",alt="sponsor image",class="spImage")
