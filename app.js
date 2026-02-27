@@ -3,7 +3,13 @@ const path=require('path')
 const app=express();
 const bodyparser=require("body-parser")
 const mongoose=require("mongoose")
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGO_URI)
+.then(() => {
+    console.log("✅ MongoDB Connected Successfully");
+})
+.catch((err) => {
+    console.error("❌ MongoDB Connection Error:", err);
+});
 // mongoose.connect("mongodb+srv://nayankewlani:<password>@nayandevcluster.xznudmv.mongodb.net/?appName=NayanDevCluster");
 const port = process.env.PORT || 8000;
 
