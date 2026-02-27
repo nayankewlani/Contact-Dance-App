@@ -3,8 +3,8 @@ const path=require('path')
 const app=express();
 const bodyparser=require("body-parser")
 const mongoose=require("mongoose")
-mongoose.connect('mongodb://127.0.0.1:27017/contactDance');
-const port=8000;
+mongoose.connect("mongodb+srv://nayankewlani:nayankew12345@nayandevcluster.xznudmv.mongodb.net/?appName=NayanDevCluster");
+const port = process.env.PORT || 8000;
 
 //define mongoose schema
 const contacSchema = new mongoose.Schema({
@@ -19,7 +19,8 @@ const contact = mongoose.model('Contact', contacSchema);
 
 //Express
 app.use('/static', express.static('static'));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Pug
 app.set('view engine', 'pug');
@@ -35,7 +36,13 @@ app.get('/contact',(req, res)=>{
     res.render('contact.pug',params);
 })
 
+app.get('/test', (req, res) => {
+    console.log("GET route working");
+    res.send("Test route working");
+});
+
 app.post('/contact',(req, res)=>{
+    console.log("Form Data:", req.body);
     var mydata=new contact(req.body);
     mydata.save().then(()=>{
         res.send('this item had been sent to the database')
