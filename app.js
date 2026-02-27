@@ -3,7 +3,8 @@ const path=require('path')
 const app=express();
 const bodyparser=require("body-parser")
 const mongoose=require("mongoose")
-mongoose.connect("mongodb+srv://nayankewlani:nayankew12345@nayandevcluster.xznudmv.mongodb.net/?appName=NayanDevCluster");
+mongoose.connect(process.env.MONGO_URI);
+// mongoose.connect("mongodb+srv://nayankewlani:<password>@nayandevcluster.xznudmv.mongodb.net/?appName=NayanDevCluster");
 const port = process.env.PORT || 8000;
 
 //define mongoose schema
@@ -47,7 +48,7 @@ app.post('/contact',(req, res)=>{
     mydata.save().then(()=>{
         res.send('this item had been sent to the database')
     }).catch(()=>{
-        res.status(404).send('item was not saved')
+        res.status(404).send('error saving data')
     })
     // res.render('contact.pug');
 })
